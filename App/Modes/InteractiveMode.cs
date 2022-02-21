@@ -1,3 +1,5 @@
+using System;
+
 namespace App.Modes
 {
     public class InteractiveMode : IMode
@@ -13,6 +15,21 @@ namespace App.Modes
         public void Start()
         {
             // TODO: Implement solving equations in interactive mode.
+        }
+        
+        private static double ReadInt(string prompt)
+        {
+            double result = 0;
+            var isInputCorrect = false;
+            while (!isInputCorrect)
+            {
+                Console.WriteLine(prompt);
+                string input = Console.ReadLine();
+                isInputCorrect = double.TryParse(input, out result);
+                if (!isInputCorrect)
+                    Console.WriteLine(parsingFailedMsg);
+            }
+            return result;
         }
     }
 }
