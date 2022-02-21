@@ -14,7 +14,10 @@ namespace App.Modes
         private static string finalEquationMsg (double a, double b, double c) 
             => $"Equation is: ({a})x^2 + ({b})x + ({c}) = 0";
         private static string noRootsMsg = "There are no roots for this equation";
-        private static string singleRootMsg(double x) => $"There is single root x = {x}";
+        private static string singleRootMsg(double x) 
+            => $"There is single root x = {x}";
+        private static string twoRootsMsg(double x1, double x2) 
+            => $"There are two roots: x1 = {x1}; x2 = {x2}";
         
         public void Start()
         {
@@ -43,7 +46,7 @@ namespace App.Modes
             var b = ReadInt(bPrompt);
             var c = ReadInt(cPrompt);
             return (a, b, c);
-        }
+         }
 
         private static void Solve(double a, double b, double c)
         {
@@ -57,7 +60,7 @@ namespace App.Modes
             else if (d == 0)
                 SolveForSingleRoot(a, b);
             else
-                SolveForTwoRoots(a, b, c);
+                SolveForTwoRoots(a, b, d);
         }
 
         private static void SolveForSingleRoot(double a, double b)
@@ -65,10 +68,12 @@ namespace App.Modes
             double x = -b / (2 * a);
             Console.WriteLine(singleRootMsg(x));
         }
-        private static void SolveForTwoRoots(double a, double b, double c)
+        private static void SolveForTwoRoots(double a, double b, double d)
         {
-            // TODO: Implement solving an equation for two roots (d>0)
-            throw new NotImplementedException();
+            double sqrtD = Math.Sqrt(d);
+            double x1 = (-b + sqrtD) / (2 * a);
+            double x2 = (-b - sqrtD) / (2 * a);
+            Console.WriteLine(twoRootsMsg(x1, x2));
         }
     }
 }
