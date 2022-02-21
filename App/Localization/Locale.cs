@@ -13,8 +13,9 @@ namespace App.Localization
         
         public static string CPrompt = "c = ";
         
-        public static string ParsingFailedMsg = "Sorry, parsing failed for the string you entered. " +
+        public static string ParsingFailedMsg = "Sorry, parsing failed for the input string. " +
                                                  "Please, try again.";
+        public static string FileNotExistsMsg = "The specified file does not exist.";
         
         public static string FinalEquationMsg (double a, double b, double c) 
             => $"Equation is: ({a})x^2 + ({b})x + ({c}) = 0";

@@ -22,6 +22,9 @@ namespace App.Modes
         
         private static (double a, double b, double c) ReadData(string path)
         {
+            bool fileExists = File.Exists(path);
+            if (!fileExists)
+                PrintErrorAndExit(Locale.FileNotExistsMsg);
             string data = File.ReadAllText(path);
             var parts = data.Split();
             if (parts.Length > 0)
