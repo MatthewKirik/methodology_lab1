@@ -2,6 +2,8 @@ namespace App.Localization
 {
     public static class Locale
     {
+        public static string WrongArgumentsMsg = "You specified the wrong amount of arguments.";
+            
         public static string GreetingMsg = "Hello! Please, enter a, b and c coefficients " +
                                             "as in an equation ax^2+bx+c=0";
         
