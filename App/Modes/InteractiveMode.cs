@@ -18,7 +18,7 @@ namespace App.Modes
             var isInputCorrect = false;
             while (!isInputCorrect)
             {
-                Console.WriteLine(prompt);
+                Console.Write(prompt);
                 string input = Console.ReadLine();
                 isInputCorrect = double.TryParse(input, out result);
                 if (!isInputCorrect)
