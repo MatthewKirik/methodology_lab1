@@ -1,5 +1,6 @@
 using System;
 using App.Localization;
+using App.Math;
 
 namespace App.Modes
 {
@@ -33,34 +34,24 @@ namespace App.Modes
             var b = ReadInt(Locale.BPrompt);
             var c = ReadInt(Locale.CPrompt);
             return (a, b, c);
-         }
+        }
 
         private static void Solve(double a, double b, double c)
         {
             Console.WriteLine(Locale.FinalEquationMsg(a, b, c));
-            
-            // find discriminant of the equation (https://en.wikipedia.org/wiki/Discriminant) 
-            double d = b * b - 4 * a * c; 
-            
-            if (d < 0)
-                Console.WriteLine(Locale.NoRootsMsg);
-            else if (d == 0)
-                SolveForSingleRoot(a, b);
-            else
-                SolveForTwoRoots(a, b, d);
-        }
-
-        private static void SolveForSingleRoot(double a, double b)
-        {
-            double x = -b / (2 * a);
-            Console.WriteLine(Locale.SingleRootMsg(x));
-        }
-        private static void SolveForTwoRoots(double a, double b, double d)
-        {
-            double sqrtD = Math.Sqrt(d);
-            double x1 = (-b + sqrtD) / (2 * a);
-            double x2 = (-b - sqrtD) / (2 * a);
-            Console.WriteLine(Locale.TwoRootsMsg(x1, x2));
+            var solution = EquationSolver.Solve(a, b, c);
+            switch (solution.type)
+            {
+                case QuadraticEquasionResultType.NoRoots:
+                    Console.WriteLine(Locale.NoRootsMsg);
+                    break;
+                case QuadraticEquasionResultType.SingleRoot:
+                    Console.WriteLine(Locale.SingleRootMsg(solution.x1));
+                    break;
+                case QuadraticEquasionResultType.TwoRoots:
+                    Console.WriteLine(Locale.TwoRootsMsg(solution.x1, solution.x2));
+                    break;
+            }
         }
     }
 }
