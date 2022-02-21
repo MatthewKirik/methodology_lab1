@@ -16,8 +16,8 @@ namespace App.Modes
         
         public void Start()
         {
-            // TODO: Implement file mode to solve equations using file input
-            throw new System.NotImplementedException();
+            var (a, b, c) = ReadData(filePath);
+            Solve(a, b, c);
         }
         
         private static (double a, double b, double c) ReadData(string path)
