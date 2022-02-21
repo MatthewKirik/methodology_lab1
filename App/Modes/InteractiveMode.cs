@@ -31,5 +31,14 @@ namespace App.Modes
             }
             return result;
         }
+        
+        private static (double, double, double) ReadData()
+        {
+            Console.WriteLine(greetingMsg);
+            var a = ReadInt(aPrompt);
+            var b = ReadInt(bPrompt);
+            var c = ReadInt(cPrompt);
+            return (a, b, c);
+        }
     }
 }
