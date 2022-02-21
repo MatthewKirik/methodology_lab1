@@ -27,7 +27,7 @@ namespace App.Modes
                 PrintErrorAndExit(Locale.FileNotExistsMsg);
             string data = File.ReadAllText(path);
             var parts = data.Split();
-            if (parts.Length > 0)
+            if (parts.Length != 3)
                 PrintErrorAndExit(Locale.ParsingFailedMsg);
             bool aParsed = double.TryParse(parts[0], out double a);
             bool bParsed = double.TryParse(parts[1], out double b);
