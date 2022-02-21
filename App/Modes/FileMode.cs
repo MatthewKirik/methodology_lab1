@@ -6,7 +6,7 @@ using App.Math;
 
 namespace App.Modes
 {
-    public class FileMode : IMode
+    public class FileMode : Mode
     {
         private string filePath;
         public FileMode(string filePath)
@@ -17,7 +17,7 @@ namespace App.Modes
         public override void Start()
         {
             var (a, b, c) = ReadData(filePath);
-            IMode.Solve(a, b, c);
+            Mode.Solve(a, b, c);
         }
         
         private static (double a, double b, double c) ReadData(string path)

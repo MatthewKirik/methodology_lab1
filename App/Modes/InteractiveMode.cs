@@ -4,12 +4,12 @@ using App.Math;
 
 namespace App.Modes
 {
-    public class InteractiveMode : IMode
+    public class InteractiveMode : Mode
     {
         public override void Start()
         {
             var (a, b, c) = ReadData();
-            IMode.Solve(a, b, c);
+            Mode.Solve(a, b, c);
         }
         
         private static double ReadInt(string prompt)

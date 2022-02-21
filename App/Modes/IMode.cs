@@ -4,7 +4,7 @@ using App.Math;
 
 namespace App.Modes
 {
-    public abstract class IMode
+    public abstract class Mode
     {
         public abstract void Start();
 

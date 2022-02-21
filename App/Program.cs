@@ -8,7 +8,7 @@ namespace App
     {
         static void Main(string[] args)
         {
-            IMode mode = null;
+            Mode mode = null;
             if (args.Length == 0)
                 mode = new InteractiveMode();
             else if (args.Length == 1)
