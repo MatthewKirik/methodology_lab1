@@ -14,6 +14,7 @@ namespace App.Modes
         private static string finalEquationMsg (double a, double b, double c) 
             => $"Equation is: ({a})x^2 + ({b})x + ({c}) = 0";
         private static string noRootsMsg = "There are no roots for this equation";
+        private static string singleRootMsg(double x) => $"There is single root x = {x}";
         
         public void Start()
         {
@@ -54,15 +55,15 @@ namespace App.Modes
             if (d < 0)
                 Console.WriteLine(noRootsMsg);
             else if (d == 0)
-                SolveForSingleRoot(a, b, c);
+                SolveForSingleRoot(a, b);
             else
                 SolveForTwoRoots(a, b, c);
         }
 
-        private static void SolveForSingleRoot(double a, double b, double c)
+        private static void SolveForSingleRoot(double a, double b)
         {
-            // TODO: Implement solving an equation for single root (d=0)
-            throw new NotImplementedException();
+            double x = -b / (2 * a);
+            Console.WriteLine(singleRootMsg(x));
         }
         private static void SolveForTwoRoots(double a, double b, double c)
         {
