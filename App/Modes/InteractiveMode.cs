@@ -21,7 +21,8 @@ namespace App.Modes
         
         public void Start()
         {
-            // TODO: Implement solving equations in interactive mode.
+            var (a, b, c) = ReadData();
+            Solve(a, b, c);
         }
         
         private static double ReadInt(string prompt)
@@ -39,7 +40,7 @@ namespace App.Modes
             return result;
         }
         
-        private static (double, double, double) ReadData()
+        private static (double a, double b, double c) ReadData()
         {
             Console.WriteLine(greetingMsg);
             var a = ReadInt(aPrompt);
