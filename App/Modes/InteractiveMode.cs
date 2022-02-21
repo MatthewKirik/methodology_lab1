@@ -6,7 +6,7 @@ namespace App.Modes
 {
     public class InteractiveMode : IMode
     {
-        public void Start()
+        public override void Start()
         {
             var (a, b, c) = ReadData();
             Solve(a, b, c);

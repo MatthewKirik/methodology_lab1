@@ -14,7 +14,7 @@ namespace App.Modes
             this.filePath = filePath;
         }
         
-        public void Start()
+        public override void Start()
         {
             var (a, b, c) = ReadData(filePath);
             Solve(a, b, c);

@@ -1,7 +1,7 @@
 namespace App.Modes
 {
-    public interface IMode
+    public abstract class IMode
     {
-        void Start();
+        public abstract void Start();
     }
 }
